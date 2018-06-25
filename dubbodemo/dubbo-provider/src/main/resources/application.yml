@@ -1,0 +1,12 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /provider
+
+# 必须
+spring:
+  application:
+    name: dubbo-provider
+
+
+

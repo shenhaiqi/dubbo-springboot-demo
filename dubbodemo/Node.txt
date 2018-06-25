@@ -1,0 +1,14 @@
+dubbo需要注册中心，在开发过程中，我们完全可以使用dubbo直连的方式避开注册中心，这样就不用去启用ZK了，另外去check也可以提高dubbo的效率
+
+优化1，直连
+
+//即将服务提高和服务消费方的注册中心设为“N/A”即可
+<dubbo:registry address="N/A"/>
+优化2，停止检查
+
+<!-- dubbo全局设置超时时间 -->
+<dubbo:consumer timeout="600000" check="false"></dubbo:consumer>
+
+以上要注意的是在dubbo服务暴露接口的配置中ref属性的值要与service实现类在注入service中的值相同@Service("testTbService")，当然，这里用的是spring中的service注解，而非dubbo中的service注解
+
+
